@@ -173,7 +173,11 @@ dcadec.pc: dcadec.pc.in
 
 install-lib: $(OUT_LIB) dcadec.pc
 	install -d -m 755 $(DESTDIR)$(LIBDIR) $(DESTDIR)$(LIBDIR)/pkgconfig $(DESTDIR)$(INCLUDEDIR)/libdcadec
+ifneq ($(and $(CONFIG_WINDOWS),$(CONFIG_SHARED)),)
+	install -m 755 $(OUT_LIB) $(DESTDIR)$(BINDIR)
+else
 	install -m 644 $(OUT_LIB) $(DESTDIR)$(LIBDIR)
+endif
 	install -m 644 $(addprefix $(SRC_DIR)/, $(INC_LIB)) $(DESTDIR)$(INCLUDEDIR)/libdcadec
 	install -m 644 dcadec.pc $(DESTDIR)$(LIBDIR)/pkgconfig
 ifdef SONAME
