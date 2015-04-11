@@ -111,7 +111,6 @@ ifdef CONFIG_SHARED
         IMP_LIB = libdcadec/libdcadec$(DLLSUF)$(LIBSUF)
         IMP_DEF = libdcadec/libdcadec.def
         EXTRA_LIB = $(IMP_LIB) $(IMP_DEF)
-        LDFLAGS_DLL += -static-libgcc
         LDFLAGS_DLL += -Wl,--nxcompat,--dynamicbase
         LDFLAGS_DLL += -Wl,--output-def,$(IMP_DEF)
         LDFLAGS_DLL += -Wl,--out-implib,$(IMP_LIB)
