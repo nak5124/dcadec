@@ -40,7 +40,11 @@ else
 endif
 
 ifdef CONFIG_SHARED
-    OUT_LIB ?= libdcadec/libdcadec$(DLLSUF)$(SONAMESUF)
+    ifdef CONFIG_WINDOWS
+        OUT_LIB ?= libdcadec/libdcadec-$(API_MAJOR)$(DLLSUF)
+    else
+        OUT_LIB ?= libdcadec/libdcadec$(DLLSUF)$(SONAMESUF)
+    endif
 else
     OUT_LIB ?= libdcadec/libdcadec$(LIBSUF)
 endif
