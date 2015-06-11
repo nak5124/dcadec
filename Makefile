@@ -194,4 +194,8 @@ install-dec: $(OUT_DEC)
 	install -d -m 755 $(DESTDIR)$(BINDIR)
 	install -m 755 $(OUT_DEC) $(DESTDIR)$(BINDIR)
 
+install-cut: $(OUT_CUT)
+	install -d -m 755 $(DESTDIR)$(BINDIR)
+	install -m 755 $(OUT_CUT) $(DESTDIR)$(BINDIR)
+
 install: install-lib install-dec
